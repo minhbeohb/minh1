@@ -1,0 +1,1004 @@
+#Screen_2{
+    position: absolute; 
+    left: 215px; top: 11px; 
+    width: 1850px; height: 975px;
+    background-color: rgb(15, 228, 210); 
+}
+#btt_scrManu_Auto {
+    border: none; 
+    background-color: rgb(0, 247, 29); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 35px; 
+    left: 40px; top: 200px 
+}
+#btt_simulation {
+    border: none; 
+    background-color: rgb(0, 247, 29); 
+    color: #0a0103;   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 35px; 
+    left: 150px; top:60px 
+   }
+/*NÚT NHẤN CHẾ ĐỘ BẰNG TAY*/
+#btt_scrManu_Manu {
+    border: none; 
+    background-color: rgb(247, 0, 161); 
+    color: rgb(6, 6, 6);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 35px; 
+    left: 140px; top: 200px;
+}
+/*Nút nhấn LƯU*/
+#btt_S2_Save {
+    border: none; 
+    background-color: rgb(0, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 120px; height: 40px; 
+    left: 50px; top: 700px;
+}
+/*Nút nhấn SỬA*/
+#btt_S2_Edit {
+    border: none; 
+    background-color: rgb(255, 0, 0); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 120px; height: 40px; 
+    left: 50px; top: 700px;
+}
+/*Nút nhấn TẮT*/
+#btt_OFF {
+    border: none; 
+    background-color: rgb(205, 37, 37); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 120px; height: 40px; 
+    left: 10px; top: 110px;
+}
+/*Nút nhấn BẬT*/
+#btt_ON {
+    border: none; 
+    background-color: rgba(222, 18, 226, 0.825); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 120px; height: 40px; 
+    left: 10px; top: 60px;
+}
+
+/*seting số mẻ*/
+#tbx_seting_so_me {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 350px;
+}
+/*seting tỉ lệ đỏ*/
+#tbx_seting_tl_do {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 382px;
+}
+/*seting tỉ lệ vàng*/
+#tbx_seting_tl_vang {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 412px;
+}
+/*seting tỉ lệ xanh*/
+#tbx_seting_tl_xanh {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 445px;
+}
+/*seting trọng lượng*/
+#tbx_seting_total {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 482px;
+}
+/*seting time trộn*/
+#tbx_seting_time_tron {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 517px;
+}
+/*seting time nghỉ*/
+#tbx_seting_time_nghi {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 552px;
+}
+/*seting lặp lại trộn*/
+#tbx_lap_lai_tron {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 583px;
+}
+/*seting lặp lại rửa*/
+#tbx_lap_lai_rua {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 90px; height: 25px; 
+    left: 140px; top: 615px;
+}
+/*seting giá trị quy đổi đỏ */
+#tbx_seting_quy_doi_do {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1030px; top: 75px;
+}
+/*seting giá trị quy đổi vàng */
+#tbx_seting_quy_doi_vang {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1310px; top: 75px;
+}
+/*seting giá trị quy đổi xanh */
+#tbx_seting_quy_doi_xanh {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1600px; top: 75px;
+}
+/*seting giá trị BƠM VÀO ĐỎ */
+#tbx_ACT_RED {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1030px; top: 110px;
+}
+/*seting giá trị BƠM VÀO VÀNG*/
+#tbx_ACT_YELOW {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1310px; top: 110px;
+}
+/*seting giá trị BƠM VÀO XANH DƯƠNG*/
+#tbx_ACT_BLUE {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1600px; top: 110px;
+}
+/*seting giá trị SỐ MẺ*/
+#tbx_ME {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1420px; top: 630px;
+}
+/*seting giá trị THỰC TẾ CHẠY*/
+#tbx_ACT_CHAY {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1420px; top: 495px;
+}
+/*seting giá trị THỰC TẾ NGHỈ*/
+#tbx_ACT_NGHI {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1420px; top: 530px;
+}
+/*seting giá trị LẶP LẠI TRỘN THỰC TẾ*/
+#tbx_ACT_LAP_LAI_TRON {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1420px; top: 565px;
+}
+/*seting giá trị LẶP LẠI RỬA THỰC TẾ*/
+#tbx_ACT_LAP_LAI_RUA {
+    border: none; 
+    background-color: rgba(63, 112, 108, 0.705); 
+    color: rgb(255, 255, 255);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 79px; height: 25px; 
+    left: 1420px; top: 595px;
+}
+#sym_scrManu_bangmau {
+    position: absolute; 
+    left: 300px; top: 280px; 
+    width: 100px; height: 25px;
+}
+/*Bơm 1*/
+#sym_scrAuto_Pump1 {
+    position: absolute; 
+    left: 731px; top: 280px; 
+    width: 75px; height: 75px;
+}
+/*Bơm 2*/
+#sym_scrAuto_Pump2 {
+    position: absolute; 
+    left: 1190px; top: 250px; 
+    width: 75px; height: 75px;
+}
+/*Bơm 3*/
+#sym_scrAuto_Pump3 {
+    position: absolute; 
+    left: 1470px; top: 250px; 
+    width: 75px; height: 75px;
+}
+/*Bơm 4*/
+#sym_scrAuto_Pump4 {
+    position: absolute; 
+    left: 1762px; top: 250px; 
+    width: 75px; height: 75px;
+}
+/*/////////////////////////////////////////////////////////////CSS CHO VAN NƯỚC TRƯƠNG TRÌNH////////////////////////////////////////////////////////*/
+/*Van 1*/
+#sym_scrAuto_Valve1 {
+    position: absolute; 
+    left: 800px; top: 215px; 
+    width: 60px; height: 60px;
+}
+/*Van 2*/
+#sym_scrAuto_Valve2 {
+    position: absolute; 
+    left: 1080px; top: 260px; 
+    width: 50px; height: 50px;
+}
+/*Van 3*/
+#sym_scrAuto_Valve3 {
+    position: absolute; 
+    left: 1364px; top: 260px; 
+    width: 50px; height: 50px;
+}
+/*Van 4*/
+#sym_scrAuto_Valve4 {
+    position: absolute; 
+    left: 1665px; top: 260px; 
+    width: 55px; height: 50px;
+}
+/*Van 5*/
+#sym_scrAuto_Valve5 {
+    position: absolute; 
+    left: 775px; top: 680px; 
+    width: 55px; height: 55px;
+}
+/*Van 6*/
+#sym_scrAuto_Valve6 {
+    position: absolute; 
+    left: 1082px; top: 675px; 
+    width: 60px; height: 60px;
+}
+/*DKVH*/
+#sym_scrAuto_chedovh {
+    position: absolute; 
+    left: 450px; top: 200px; 
+    width: 70px; height: 60px;
+}
+/*/////////////////////////////////////////////////////////////////CSS CỦA CÁC BỒN MÀU///////////////////////////////////////*/
+/*TANK1*/
+#sym_scrAuto_Tank1 {
+    position: absolute; 
+    left: 1152px; top: 68px; 
+    width: 106px; height: 106px;
+}
+/*TANK2*/
+#sym_scrAuto_Tank2 {
+    position: absolute; 
+    left: 1432px; top: 68px; 
+    width: 106px; height: 106px;
+}
+/*TANK3*/
+#sym_scrAuto_Tank3 {
+    position: absolute; 
+    left: 1723px; top: 68px; 
+    width: 106px; height: 106px;
+}
+/*TANK BỒN TRỘN*/
+#sym_scrAuto_TRON1 {
+    position: absolute; 
+    left: 850px; top: 460px; 
+    width: 250px; height: 200px;
+}
+/*ĐỘNG CƠ BỒN TRỘN*/
+#sym_scrAuto_DCTRON1 {
+    position: absolute; 
+    left: 920px; top: 390px; 
+    width: 90px; height: 80px;
+}
+/*tankNC*/
+#sym_scrAuto_tankNC {
+    position: absolute; 
+    left: 1190px; top: 780px; 
+    width: 100px; height: 100px;
+}
+/*Lon sơn*/
+#sym_scrAuto_lonNC {
+    position: absolute; 
+    left: 670px; top: 855px; 
+    width: 50px; height: 100px;
+}
+/*BĂNG TẢI1*/
+#sym_scrAuto_bangtai1 {
+    position: absolute; 
+    left: 0px; top: 935px; 
+    width: 500px; height: 40px;
+}
+/*BĂNG TẢI2*/
+#sym_scrAuto_bangtai2 {
+    position: absolute; 
+    left: 395px; top: 935px; 
+    width: 500px; height: 40px;
+}
+/*BĂNG TẢI3*/
+#sym_scrAuto_bangtai3 {
+    position: absolute; 
+    left: 805px; top: 935px; 
+    width: 500px; height: 40px;
+}
+/*BĂNG TẢI4*/
+#sym_scrAuto_bangtai4 {
+    position: absolute; 
+    left: 1200px; top: 935px; 
+    width: 450px; height: 40px;
+}
+/*BĂNG TẢI5*/
+#sym_scrAuto_bangtai5 {
+    position: absolute; 
+    left: 1450px; top: 935px; 
+    width: 450px; height: 40px;
+}
+/*xi lanh đẩy lon*/
+#sym_scrAuto_daylon {
+    position: absolute; 
+    left: 0px; top: 870px; 
+    width: 100px; height: 40px;
+}
+/*xi lanh đẩy nắp*/
+#sym_scrAuto_daynap {
+    position: absolute; 
+    left: 1500px; top: 850px; 
+    width: 100px; height: 40px;
+} 
+/*xi lanh dập nắp*/
+#sym_scrAuto_dongnap {
+    position: absolute; 
+    left: 1700px; top: 710px; 
+    width: 40px; height: 100px;
+}
+/*/////////////////////////////////////////////////////////// css cho bảng màu/////////////////////////////////////////////////////////////////////*/
+#btt_m1 {
+    border: none; 
+    background-color: rgb(159, 177, 241); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 337px; top: 426px 
+}
+#btt_m2 {
+    border: none; 
+    background-color: rgb(108, 68, 0); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 44px; height: 25px; 
+    left: 384px; top: 425px 
+}
+#btt_m3 {
+    border: none; 
+    background-color: rgb(159, 163, 175); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 431px; top: 425px 
+}
+#btt_m4 {
+    border: none; 
+    background-color: rgb(7, 55, 228); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 478px; top: 425px 
+}
+#btt_m5 {
+    border: none; 
+    background-color: rgb(244, 9, 233); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 525px; top: 425px 
+}
+#btt_m6 {
+    border: none; 
+    background-color: rgb(86, 4, 144); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 573px; top: 425px 
+}
+#btt_m7 {
+    border: none; 
+    background-color: rgb(8, 244, 244); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 621px; top: 425px 
+}
+#btt_m8 {
+    border: none; 
+    background-color: rgb(239, 155, 52); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 337px; top: 465px 
+}
+#btt_m9 {
+    border: none; 
+    background-color: rgb(135, 194, 18); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 383px; top: 465px 
+}
+#btt_m10 {
+    border: none; 
+    background-color: rgb(5, 87, 10); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 431px; top: 465px 
+}
+#btt_m11 {
+    border: none; 
+    background-color: rgb(95, 207, 205); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 478px; top: 465px 
+}
+#btt_m12 {
+    border: none; 
+    background-color: rgb(11, 37, 234); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 525px; top: 465px 
+}
+#btt_m13 {
+    border: none; 
+    background-color: rgb(100, 52, 176); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 573px; top: 465px 
+}
+#btt_m14 {
+    border: none; 
+    background-color: rgb(207, 211, 225); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 621px; top: 465px 
+}
+#btt_m15 {
+    border: none; 
+    background-color: rgb(253, 5, 21); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 337px; top: 500px 
+}
+#btt_m16 {
+    border: none; 
+    background-color: rgb(250, 242, 0); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 384px; top: 500px 
+}
+#btt_m17 {
+    border: none; 
+    background-color: rgb(5, 179, 127); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 432px; top: 500px 
+}
+#btt_m18 {
+    border: none; 
+    background-color: rgb(9, 135, 164); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 478px; top: 500px 
+}
+#btt_m19 {
+    border: none; 
+    background-color: rgb(132, 32, 227); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 525px; top: 500px 
+}
+#btt_m20 {
+    border: none; 
+    background-color: rgb(243, 4, 132); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 572px; top: 500px 
+}
+#btt_m21 {
+    border: none; 
+    background-color: rgb(154, 158, 172); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 621px; top: 500px 
+}
+#btt_m22 {
+    border: none; 
+    background-color: rgb(254, 0, 249); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 337px; top: 535px 
+}
+#btt_m23 {
+    border: none; 
+    background-color: rgb(225, 233, 3); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 384px; top: 535px 
+}
+#btt_m24 {
+    border: none; 
+    background-color: rgb(33, 222, 74); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 432px; top: 535px 
+}
+#btt_m25 {
+    border: none; 
+    background-color: rgb(125, 215, 228); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 478px; top: 535px 
+}
+#btt_m26 {
+    border: none; 
+    background-color: rgb(33, 237, 240); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 525px; top: 535px 
+}
+#btt_m27 {
+    border: none; 
+    background-color: rgb(228, 75, 172); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 572px; top: 535px 
+}
+#btt_m28 {
+    border: none; 
+    background-color: rgb(213, 213, 213); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 621px; top: 535px 
+}
+#btt_m29 {
+    border: none; 
+    background-color: rgb(241, 185, 222); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 337px; top: 570px 
+}
+#btt_m30 {
+    border: none; 
+    background-color: rgb(203, 213, 147); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 384px; top: 570px 
+}
+#btt_m31 {
+    border: none; 
+    background-color: rgb(218, 223, 71); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 432px; top: 570px 
+}
+#btt_m32 {
+    border: none; 
+    background-color: rgb(184, 252, 56); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 478px; top: 570px 
+}
+#btt_m33 {
+    border: none; 
+    background-color: rgb(244, 245, 242); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 525px; top: 570px 
+}
+#btt_m34 {
+    border: none; 
+    background-color: rgb(163, 224, 248); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 572px; top: 570px 
+}
+#btt_m35 {
+    border: none; 
+    background-color: rgb(217, 135, 247); 
+    color: rgb(0, 0, 0);   
+    text-align: center; 
+    display: inline-block;
+    font-size: 13px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 45px; height: 25px; 
+    left: 621px; top: 570px 
+}
+
+

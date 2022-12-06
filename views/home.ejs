@@ -1,0 +1,456 @@
+<html>
+    <!-- Phần Header của Website -->
+    <head>
+        <!-- ////////////// GỌI CÁC CSS //////////////  -->
+        <link rel="stylesheet" href= "CSS/login.css">
+        <link rel="stylesheet" href= "CSS/slidebar.css">
+        <link rel="stylesheet" href= "CSS/screen_main.css">
+        <link rel="stylesheet" href= "CSS/screen_1.css">
+        <link rel="stylesheet" href= "CSS/screen_2.css">z
+        <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+        <title>Scada hệ thống trộn sơn minh HVMM</title>
+        <script src = "socket.io/socket.io.js"></script>
+        <script src = "js/FC1_Common.js"></script>
+        <script src = "js/FC2_UserManagement.js"></script>
+        <script src = "js/FC3_MainScreen.js"></script>
+        <script src = "js/FC4_Screen1.js"></script>
+        <script src = "js/FC5_Screen2.js"></script>
+        <script>
+            var socket = io("localhost:3000"); // IP tĩnh (hoặc IP động, hoặc localhost)
+        </script>
+        <!-- ////////////// CHƯƠNG TRÌNH ĐĂNG NHẬP HỆ THỐNG //////////////  -->
+        <div id="div_login">
+            <div id="id01" class="modal">
+                <form id = "modal-content1" class="modal-content animate">
+                <div id = "img_container" class="imgcontainer">
+                    <span id = "closebtt" onclick="document.getElementById('id01').style.display='none'; logout();" class="close" title="Close Modal">&times;</span>
+                    <img id = "img_avatar" src="images/user.png" alt="Avatar" class="avatar">
+                </div>
+            
+                <div id = "log_container" class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input id = "inputuser" type="text" placeholder="Enter Username" name="uname" required>
+            
+                    <label for="psw"><b>Password</b></label>
+                    <input id = "inputpass" type="password" placeholder="Enter Password" name="psw" required>
+                    
+                    <button id = "bttlogin1" type="button" onclick="login();">Login</button>
+                    <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+            
+                <div id = "login_container" class="container" style="background-color:#f1f1f1">
+                    <button id = "bttcancle" type="button" onclick="document.getElementById('id01').style.display='none'; logout();" class="cancelbtn">Cancel</button>
+                    <span id = "psw" class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+                </form>
+            </div>
+        </div>
+    </head>
+    </head>
+    <!-- Phần thân của website -->
+    <body> 
+        <!-- ////////////// Code cho slidebar////////////// -->
+        <div id = "slidebar">
+           <!--Nút đăng nhập/đăng xuất-->
+         <button id="bttLogin" class="btn" onclick="login();
+         window.location.reload();
+        ">ĐĂNG NHẬP</button>
+         <button id="bttLogout" class="btn" onclick="logout();
+        ">ĐĂNG XUẤT</button>             
+         <!--Nút chọn màn hình chính-->
+            <button id="btt_Screen_Main" onclick=" 
+                fn_ScreenChange('Screen_Main','Screen_1','Screen_2');
+            ">MÀN HÌNH CHÍNH</button>
+            <!--Nút chọn màn hình 1-->
+            <button id="btt_Screen_1" onclick=" 
+                fn_ScreenChange('Screen_1','Screen_Main','Screen_2');
+            ">BẰNG TAY</button>
+            <!--Nút chọn màn hình 2-->
+            <button id="btt_Screen_2" onclick=" 
+                fn_ScreenChange('Screen_2','Screen_Main','Screen_1');
+            ">TỰ ĐỘNG</button>      
+             
+        </div>
+    <!-- //////////////Code cho màn hình chính////////////// -->
+        <div id = "Screen_Main">
+            <img src ="images/MAINSCREEN.PNG"width="1870" height="750">
+            <img src="images/minion.gif" style="width:300px;height:300px;">
+        </div> 
+    <!-- /////////////////////////////////////////////////Code cho chế độ bằng tay/////////////////////////////////////////////// -->
+        <div id = "Screen_1">
+   <!--Nút nhấn sửa/lưu - Lưu ý: Nút nhấn lưu phải nằm trước nút nhấn sửa--> 
+       <img src ="images/ManualDA.PNG"width="1900" height="1075" >
+       <!-- bơm 1  -->
+       <img id = "sym_scrManu_Pump1" ><script> fn_SymbolStatus("sym_scrManu_Pump1", "Pump2", "MANU_BOM1") </script>
+       <!-- bơm 2  -->
+       <img id = "sym_scrManu_Pump2" ><script> fn_SymbolStatus("sym_scrManu_Pump2", "Pump2", "MANU_BOM2") </script>
+       <!-- bơm 3  -->
+       <img id = "sym_scrManu_Pump3" ><script> fn_SymbolStatus("sym_scrManu_Pump3", "Pump2", "MANU_BOM3") </script>
+       <!-- bơm 4  -->
+       <img id = "sym_scrManu_Pump4" ><script> fn_SymbolStatus("sym_scrManu_Pump4", "Pump2", "MANU_BOM4") </script>
+       <!--///////////////////////////////////////////////////////////////////////code van ///////////////////////////////////////////////////////////-->
+         <!-- van 1  -->
+         <img id = "sym_scrManu_Valve1" ><script> fn_SymbolStatus("sym_scrManu_Valve1", "Valve1", "MANU_VAN_NUOC_1") </script>
+         <!-- van 2  -->
+         <img id = "sym_scrManu_Valve2" ><script> fn_SymbolStatus("sym_scrManu_Valve2", "Valve1", "MANU_VAN_NUOC_2") </script>
+         <!-- van 3  -->
+         <img id = "sym_scrManu_Valve3" ><script> fn_SymbolStatus("sym_scrManu_Valve3", "Valve1", "MANU_VAN_NUOC_3") </script>
+         <!-- van 4  -->
+         <img id = "sym_scrManu_Valve4" ><script> fn_SymbolStatus("sym_scrManu_Valve4", "Valve1", "MANU_VAN_NUOC_4") </script> 
+         <!-- van 5  -->
+         <img id = "sym_scrManu_Valve5" ><script> fn_SymbolStatus("sym_scrManu_Valve5", "Valve1", "MANU_VAN_NUOC_5") </script>
+         <!-- van 6  -->
+         <img id = "sym_scrManu_Valve6" ><script> fn_SymbolStatus("sym_scrManu_Valve6", "Valve1", "MANU_VAN_NUOC_6") </script>  
+                <img id = "sym_scrManu_Tank1" ><script> fn_SymbolStatus("sym_scrManu_Tank1", "tank1", "ACT_RED") </script>     
+                <img id = "sym_scrManu_Tank2" ><script> fn_SymbolStatus("sym_scrManu_Tank2", "tank1", "ACT_YELOW") </script>   
+                <img id = "sym_scrManu_Tank3" ><script> fn_SymbolStatus("sym_scrManu_Tank3", "tank1", "ACT_BLUE") </script>     
+                <img id = "sym_scrManu_TRON1" ><script> fn_SymbolStatus("sym_scrManu_TRON1","TRON1", "RESET") </script> 
+                <img id = "sym_scrManu_DCTRON1" ><script> fn_SymbolStatus("sym_scrManu_DCTRON1","Motor1", "MANU_DC_KHOANG") </script>
+                <img id = "sym_scrManu_tankNC" ><script> fn_SymbolStatus("sym_scrManu_tankNC","nuoc1","MANU_VAN_NUOC_6" ) </script>
+                <img id = "sym_scrManu_bangtai1" ><script> fn_SymbolStatus("sym_scrManu_bangtai1","bangtai1","MANU_BANGTAI" ) </script>
+                <img id = "sym_scrManu_bangtai2" ><script> fn_SymbolStatus("sym_scrManu_bangtai2","bangtai1","MANU_BANGTAI" ) </script>
+                <img id = "sym_scrManu_bangtai3" ><script> fn_SymbolStatus("sym_scrManu_bangtai3","bangtai1","MANU_BANGTAI" ) </script>
+                <img id = "sym_scrManu_bangtai4" ><script> fn_SymbolStatus("sym_scrManu_bangtai4","bangtai1","MANU_BANGTAI" ) </script>
+                <img id = "sym_scrManu_bangtai5" ><script> fn_SymbolStatus("sym_scrManu_bangtai5","bangtai1","MANU_BANGTAI" ) </script>
+                <img id = "sym_scrManu_lonNC" ><script> fn_SymbolStatus("sym_scrManu_lonNC","lon1","MANU_VAN_NUOC_5" ) </script>
+                <img id = "sym_scrManu_daylon" ><script> fn_SymbolStatus("sym_scrManu_daylon","khi1","MANU_VAN_KHI_1" ) </script>
+                <img id = "sym_scrManu_daynap" ><script> fn_SymbolStatus("sym_scrManu_daynap","khi1","MANU_VAN_KHI_2" ) </script>
+                <img id = "sym_scrManu_dongnap" ><script> fn_SymbolStatus("sym_scrManu_dongnap","khi3","MANU_VAN_KHI_3" ) </script>
+                <img id = "sym_scrManu_bangmau"><script> fn_SymbolStatus("sym_scrManu_bangmau","reset","" ) </script>
+                <!-- //////////////NÚT NHẤN ĐIỀU KHIỂN////////////// -->
+                        <!-- Chọn chế độ tự động -->
+                        <button id="btt_scrManu_Auto" onclick= "socket.emit('cmd_Mode_Auto', true);">TỰ ĐỘNG</button>
+                        <script>fn_btt_Color('Q_Lamp_Auto', 'btt_scrManu_Auto', 'rgb(0, 255, 15)', 'gray')</script>
+                        <!-- Chọn chế độ bằng tay -->
+                        <button id="btt_scrManu_Manu" onclick= "socket.emit('cmd_Mode_Manu', true);">BẰNG TAY</button>
+                        <script>fn_btt_Color('Q_Lamp_Manu', 'btt_scrManu_Manu', 'rgb(220, 217, 11)', 'gray')</script>               
+                                    <!--///////////////////////////nút của bơm////////////////////////////////// -->
+                        <!-- bơm 1 Open -->
+                        <button id="btt_scrManu_BOM1_OPEN" onclick= "socket.emit('cmd_Manu_BOM1_OPEN', true);">MỞ</button>
+                        <script>fn_btt_Color('MANU_BOM_1_ON', 'btt_scrManu_BOM1_OPEN', 'rgb(0, 255, 15)', 'gray')</script>
+                        <!-- bơm 1 Close -->
+                        <button id="btt_scrManu_BOM1_CLOSE" onclick= "socket.emit('cmd_Manu_BOM1_CLOSE', true);">ĐÓNG</button>   
+                        <script>fn_btt_Color('MANU_BOM_1_OFF', 'btt_scrManu_BOM1_CLOSE', 'rgb(220, 217, 11)', 'gray')</script>   
+                         <!-- bơm 2 Open -->
+                        <button id="btt_scrManu_BOM2_OPEN" onclick= "socket.emit('cmd_Manu_BOM2_OPEN', true);">MỞ</button>
+                        <script>fn_btt_Color('MANU_BOM_2_ON', 'btt_scrManu_BOM2_OPEN', 'rgb(0, 255, 15)', 'gray')</script>
+                        <!-- bơm 2 Close -->
+                        <button id="btt_scrManu_BOM2_CLOSE" onclick= "socket.emit('cmd_Manu_BOM2_CLOSE', true);">ĐÓNG</button>    
+                        <script>fn_btt_Color('MANU_BOM_2_OFF', 'btt_scrManu_BOM2_CLOSE', 'rgb(220, 217, 11)', 'gray')</script>   
+                        <!-- bơm 3 Open -->
+                        <button id="btt_scrManu_BOM3_OPEN" onclick= "socket.emit('cmd_Manu_BOM3_OPEN', true);">MỞ</button>
+                        <script>fn_btt_Color('MANU_BOM_3_ON', 'btt_scrManu_BOM3_OPEN', 'rgb(0, 255, 15)', 'gray')</script>
+                        <!-- bơm 3 Close -->
+                        <button id="btt_scrManu_BOM3_CLOSE" onclick= "socket.emit('cmd_Manu_BOM3_CLOSE', true);">ĐÓNG</button>  
+                        <script>fn_btt_Color('MANU_BOM_3_OFF', 'btt_scrManu_BOM3_CLOSE', 'rgb(220, 217, 11)', 'gray')</script>   
+                        <!-- bơm 4  Open -->
+                        <button id="btt_scrManu_BOM4_OPEN" onclick= "socket.emit('cmd_Manu_BOM4_OPEN', true);">MỞ</button>
+                        <script>fn_btt_Color('MANU_BOM_4_ON', 'btt_scrManu_BOM4_OPEN', 'rgb(0, 255, 15)', 'gray')</script>
+                        <!-- bơm 4 Close -->
+                        <button id="btt_scrManu_BOM4_CLOSE" onclick= "socket.emit('cmd_Manu_BOM4_CLOSE', true);">ĐÓNG</button>  
+                        <script>fn_btt_Color('MANU_BOM_4_OFF', 'btt_scrManu_BOM4_CLOSE', 'rgb(220, 217, 11)', 'gray')</script>   
+                         <!-- van 1  Open -->
+                         <button id="btt_scrManu_VAN_NUOC_1_OPEN" onclick= "socket.emit('cmd_Manu_VAN_NUOC_1_OPEN', true);">MỞ</button>
+                         <script>fn_btt_Color('MANU_VAN_NUOC_1_ON', 'btt_scrManu_VAN_NUOC_1_OPEN' )</script>
+                         <!-- van 1 Close -->
+                         <button id="btt_scrManu_VAN_NUOC_1_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_NUOC_1_CLOSE', true);">ĐÓNG</button>  
+                         <script>fn_btt_Color('MANU_VAN_NUOC_1_OFF', 'btt_scrManu_VAN_NUOC_1_CLOSE')</script>   
+                        <!-- van 2  Open -->
+                        <button id="btt_scrManu_VAN_NUOC_2_OPEN" onclick= "socket.emit('cmd_Manu_VAN_NUOC_2_OPEN', true);">MỞ</button>
+                        <script>fn_btt_Color('MANU_VAN_NUOC_2_ON', 'btt_scrManu_VAN_NUOC_2_OPEN' )</script>
+                        <!-- van 2 Close -->
+                        <button id="btt_scrManu_VAN_NUOC_2_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_NUOC_2_CLOSE', true);">ĐÓNG</button>  
+                        <script>fn_btt_Color('MANU_VAN_NUOC_2_OFF', 'btt_scrManu_VAN_NUOC_2_CLOSE')</script>   
+                       <!-- van 3  Open -->
+                       <button id="btt_scrManu_VAN_NUOC_3_OPEN" onclick= "socket.emit('cmd_Manu_VAN_NUOC_3_OPEN', true);">MỞ</button>
+                       <script>fn_btt_Color('MANU_VAN_NUOC_3_ON', 'btt_scrManu_VAN_NUOC_3_OPEN' )</script>
+                       <!-- van 3 Close -->
+                       <button id="btt_scrManu_VAN_NUOC_3_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_NUOC_3_CLOSE', true);">ĐÓNG</button>  
+                       <script>fn_btt_Color('MANU_VAN_NUOC_3_OFF', 'btt_scrManu_VAN_NUOC_3_CLOSE')</script>   
+                      <!-- van 4  Open -->
+                      <button id="btt_scrManu_VAN_NUOC_4_OPEN" onclick= "socket.emit('cmd_Manu_VAN_NUOC_4_OPEN', true);">MỞ</button>
+                      <script>fn_btt_Color('MANU_VAN_NUOC_4_ON', 'btt_scrManu_VAN_NUOC_4_OPEN' )</script>
+                      <!-- van 4 Close -->
+                      <button id="btt_scrManu_VAN_NUOC_4_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_NUOC_4_CLOSE', true);">ĐÓNG</button>  
+                      <script>fn_btt_Color('MANU_VAN_NUOC_4_OFF', 'btt_scrManu_VAN_NUOC_4_CLOSE')</script>   
+                     <!-- van 5  Open -->
+                     <button id="btt_scrManu_VAN_NUOC_5_OPEN" onclick= "socket.emit('cmd_Manu_VAN_NUOC_5_OPEN', true);">MỞ</button>
+                     <script>fn_btt_Color('MANU_VAN_NUOC_5_ON', 'btt_scrManu_VAN_NUOC_5_OPEN' )</script>
+                     <!-- van 5 Close -->
+                     <button id="btt_scrManu_VAN_NUOC_5_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_NUOC_5_CLOSE', true);">ĐÓNG</button>  
+                     <script>fn_btt_Color('MANU_VAN_NUOC_5_OFF', 'btt_scrManu_VAN_NUOC_5_CLOSE')</script>   
+                    <!-- van 6  Open -->
+                    <button id="btt_scrManu_VAN_NUOC_6_OPEN" onclick= "socket.emit('cmd_Manu_VAN_NUOC_6_OPEN', true);">MỞ</button>
+                    <script>fn_btt_Color('MANU_VAN_NUOC_6_ON', 'btt_scrManu_VAN_NUOC_6_OPEN' )</script>
+                    <!-- van 6 Close -->
+                    <button id="btt_scrManu_VAN_NUOC_6_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_NUOC_6_CLOSE', true);">ĐÓNG</button>  
+                    <script>fn_btt_Color('MANU_VAN_NUOC_6_OFF', 'btt_scrManu_VAN_NUOC_6_CLOSE')</script>   
+                    <!--//////////////////////////////////CÁC VAN KHÍ//////////////////////////////-->
+                     <!-- van KHÍ 1  Open -->
+                     <button id="btt_scrManu_VAN_KHI_1_OPEN" onclick= "socket.emit('cmd_Manu_VAN_KHI_1_OPEN', true);">MỞ</button>
+                     <script>fn_btt_Color('MANU_VAN_KHI_1_ON', 'btt_scrManu_VAN_KHI_1_OPEN' )</script>
+                     <!-- VAN KHÍ 1 Close -->
+                     <button id="btt_scrManu_VAN_KHI_1_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_KHI_1_CLOSE', true);">ĐÓNG</button>  
+                     <script>fn_btt_Color('MANU_VAN_KHI_1_OFF', 'btt_scrManu_VAN_KHI_1_CLOSE')</script>
+                      <!-- van KHÍ 2  Open -->
+                      <button id="btt_scrManu_VAN_KHI_2_OPEN" onclick= "socket.emit('cmd_Manu_VAN_KHI_2_OPEN', true);">MỞ</button>
+                      <script>fn_btt_Color('MANU_VAN_KHI_2_ON', 'btt_scrManu_VAN_KHI_2_OPEN' )</script>
+                      <!-- VAN KHÍ 2 Close -->
+                      <button id="btt_scrManu_VAN_KHI_2_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_KHI_2_CLOSE', true);">ĐÓNG</button>  
+                      <script>fn_btt_Color('MANU_VAN_KHI_2_OFF', 'btt_scrManu_VAN_KHI_2_CLOSE')</script>
+                       <!-- van KHÍ 3  Open -->
+                     <button id="btt_scrManu_VAN_KHI_3_OPEN" onclick= "socket.emit('cmd_Manu_VAN_KHI_3_OPEN', true);">MỞ</button>
+                     <script>fn_btt_Color('MANU_VAN_KHI_3_ON', 'btt_scrManu_VAN_KHI_3_OPEN' )</script>
+                     <!-- VAN KHÍ 3 Close -->
+                     <button id="btt_scrManu_VAN_KHI_3_CLOSE" onclick= "socket.emit('cmd_Manu_VAN_KHI_3_CLOSE', true);">ĐÓNG</button>  
+                     <script>fn_btt_Color('MANU_VAN_KHI_3_OFF', 'btt_scrManu_VAN_KHI_3_CLOSE')</script>
+                 <!-- băng tải  Open -->
+                 <button id="btt_scrManu_BANGTAI_OPEN" onclick= "socket.emit('cmd_Manu_BANGTAI_OPEN', true);">MỞ</button>
+                 <script>fn_btt_Color('MANU_BANGTAI_ON', 'btt_scrManu_BANGTAI_OPEN' )</script>
+                 <!-- băng tải Close -->
+                 <button id="btt_scrManu_BANGTAI_CLOSE" onclick= "socket.emit('cmd_Manu_BANGTAI_CLOSE', true);">ĐÓNG</button>  
+                 <script>fn_btt_Color('MANU_BANGTAI_OFF', 'btt_scrManu_BANGTAI_CLOSE')</script>
+                  <!-- động cơ trộn  Open -->
+                  <button id="btt_scrManu_DC_KHOANG_OPEN" onclick= "socket.emit('cmd_Manu_DC_KHOANG_OPEN', true);">MỞ</button>
+                  <script>fn_btt_Color('MANU_DC_KHOANG_ON', 'btt_scrManu_DC_KHOANG_OPEN' )</script>
+                  <!-- động cơ trộn Close -->
+                  <button id="btt_scrManu_DC_KHOANG_CLOSE" onclick= "socket.emit('cmd_Manu_DC_KHOANG_CLOSE', true);">ĐÓNG</button>  
+                  <script>fn_btt_Color('MANU_DC_KHOANG_OFF', 'btt_scrManu_DC_KHOANG_CLOSE')</script>
+        </div>    
+    <!-- ///////////////////////////////////////////////////Code cho màn hình 2////////////////////////////////////////////////////////////// -->
+        <div id = "Screen_2">
+        <!-- /////////////////////////////////////////////////Code cho chế độ bằng tay/////////////////////////////////////////////// -->
+                    <!--Nút nhấn sửa/lưu - Lưu ý: Nút nhấn lưu phải nằm trước nút nhấn sửa--> 
+               
+                 <img src ="images/autoMB1.PNG"width="1900" height="1060" >
+               
+                <!-- bơm 1  -->
+                <img id = "sym_scrAuto_Pump1" ><script> fn_SymbolStatus("sym_scrAuto_Pump1", "Pump2", "MANU_BOM1") </script>
+                <!-- bơm 2  -->
+                <img id = "sym_scrAuto_Pump2" ><script> fn_SymbolStatus("sym_scrAuto_Pump2", "Pump2", "MANU_BOM2") </script>
+                <!-- bơm 3  -->
+                <img id = "sym_scrAuto_Pump3" ><script> fn_SymbolStatus("sym_scrAuto_Pump3", "Pump2", "MANU_BOM3") </script>
+                <!-- bơm 4  -->
+                <img id = "sym_scrAuto_Pump4" ><script> fn_SymbolStatus("sym_scrAuto_Pump4", "Pump2", "MANU_BOM4") </script>
+                            <!--///////////////////////////////////////////////////////////////////////code van ///////////////////////////////////////////////////////////-->
+                  <!-- van 1  -->
+                  <img id = "sym_scrAuto_Valve1" ><script> fn_SymbolStatus("sym_scrAuto_Valve1", "Valve1", "MANU_VAN_NUOC_1") </script>
+                  <!-- van 2  -->
+                  <img id = "sym_scrAuto_Valve2" ><script> fn_SymbolStatus("sym_scrAuto_Valve2", "Valve1", "MANU_VAN_NUOC_2") </script>
+                  <!-- van 3  -->
+                  <img id = "sym_scrAuto_Valve3" ><script> fn_SymbolStatus("sym_scrAuto_Valve3", "Valve1", "MANU_VAN_NUOC_3") </script>
+                  <!-- van 4  -->
+                  <img id = "sym_scrAuto_Valve4" ><script> fn_SymbolStatus("sym_scrAuto_Valve4", "Valve1", "MANU_VAN_NUOC_4") </script> 
+                  <!-- van 5  -->
+                  <img id = "sym_scrAuto_Valve5" ><script> fn_SymbolStatus("sym_scrAuto_Valve5", "Valve1", "MANU_VAN_NUOC_5") </script>
+                  <!-- van 6  -->
+                  <img id = "sym_scrAuto_Valve6" ><script> fn_SymbolStatus("sym_scrAuto_Valve6", "Valve1", "MANU_VAN_NUOC_6") </script>  
+                         <img id = "sym_scrAuto_Tank1" ><script> fn_SymbolStatus("sym_scrAuto_Tank1", "tank1", "ACT_RED") </script>     
+                         <img id = "sym_scrAuto_Tank2" ><script> fn_SymbolStatus("sym_scrAuto_Tank2", "tank1", "ACT_YELOW") </script>   
+                         <img id = "sym_scrAuto_Tank3" ><script> fn_SymbolStatus("sym_scrAuto_Tank3", "tank1", "ACT_BLUE") </script>     
+                         <img id = "sym_scrAuto_TRON1" ><script> fn_SymbolStatus("sym_scrAuto_TRON1","TRON1", "RESET") </script> 
+                         <img id = "sym_scrAuto_DCTRON1" ><script> fn_SymbolStatus("sym_scrAuto_DCTRON1","Motor1", "MANU_DC_KHOANG") </script>
+                         <img id = "sym_scrAuto_tankNC" ><script> fn_SymbolStatus("sym_scrAuto_tankNC","nuoc1","MANU_VAN_NUOC_6" ) </script>
+                         <img id = "sym_scrAuto_bangtai1" ><script> fn_SymbolStatus("sym_scrAuto_bangtai1","bangtai1","MANU_BANGTAI" ) </script>
+                         <img id = "sym_scrAuto_bangtai2" ><script> fn_SymbolStatus("sym_scrAuto_bangtai2","bangtai1","MANU_BANGTAI" ) </script>
+                         <img id = "sym_scrAuto_bangtai3" ><script> fn_SymbolStatus("sym_scrAuto_bangtai3","bangtai1","MANU_BANGTAI" ) </script>
+                         <img id = "sym_scrAuto_bangtai4" ><script> fn_SymbolStatus("sym_scrAuto_bangtai4","bangtai1","MANU_BANGTAI" ) </script>
+                         <img id = "sym_scrAuto_bangtai5" ><script> fn_SymbolStatus("sym_scrAuto_bangtai5","bangtai1","MANU_BANGTAI" ) </script>
+                         <img id = "sym_scrAuto_lonNC" ><script> fn_SymbolStatus("sym_scrAuto_lonNC","lon1","MANU_VAN_NUOC_5" ) </script>
+                         <img id = "sym_scrAuto_daylon" ><script> fn_SymbolStatus("sym_scrAuto_daylon","khi1","MANU_VAN_KHI_1" ) </script>
+                         <img id = "sym_scrAuto_daynap" ><script> fn_SymbolStatus("sym_scrAuto_daynap","khi1","MANU_VAN_KHI_2" ) </script>
+                         <img id = "sym_scrAuto_dongnap" ><script> fn_SymbolStatus("sym_scrAuto_dongnap","khi3","MANU_VAN_KHI_3" ) </script>
+                         <img id = "sym_scrAuto_chedovh" ><script> fn_SymbolStatus("sym_scrAuto_chedovh","DKVH1","btt_Auto_confirm" ) </script>
+                         <!-- //////////////HIỂN THỊ DỮ LIỆU IO FIELD////////////// -->
+        <!-- ///////// GỌI CÁC IOFIELD HIỂN THỊ/////////////// -->
+          <!--Nút nhấn sửa/lưu - Lưu ý: Nút nhấn lưu phải nằm trước nút nhấn sửa--> 
+          <button id="btt_S2_Save" onclick= "fn_S2_SaveBtt('btt_S2_Save','btt_S2_Edit')">LƯU</button> 
+          <button id="btt_S2_Edit" onclick= "fn_S2_EditBtt('btt_S2_Save','btt_S2_Edit')">SỬA</button>
+          <!-- ///////// GỌI CÁC IOFIELD HIỂN THỊ/////////////// -->
+          <!--Tag dạng Số thực-->
+          <input id="tbx_seting_so_me" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_so_me", "tbx_seting_so_me", 0);</script>
+          <br /><br />      
+          <input id="tbx_seting_tl_do" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_tl_do", "tbx_seting_tl_do", 2);</script>
+          <br /><br /> 
+          <input id="tbx_seting_tl_vang" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_tl_vang", "tbx_seting_tl_vang", 2);</script>
+          <br /><br />  
+          <input id="tbx_seting_tl_xanh" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_tl_xanh", "tbx_seting_tl_xanh", 2);</script>
+          <br /><br />
+          <input id="tbx_seting_total" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_total", "tbx_seting_total", 0);</script>
+          <br /><br />     
+          <input id="tbx_seting_time_tron" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_time_tron", "tbx_seting_time_tron", 0);</script>
+          <br /><br />     
+          <input id="tbx_seting_time_nghi" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_time_nghi", "tbx_seting_time_nghi", 0);</script>
+          <br /><br />
+          <input id="tbx_lap_lai_tron" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("lap_lai_tron", "tbx_lap_lai_tron", 0);</script>
+          <br /><br />
+          <input id="tbx_lap_lai_rua" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("lap_lai_rua", "tbx_lap_lai_rua", 0);</script>
+          <br /><br />     
+          <input id="tbx_seting_quy_doi_do" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_quy_doi_do", "tbx_seting_quy_doi_do", 1);</script>
+          <br /><br />       
+          <input id="tbx_seting_quy_doi_vang" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_quy_doi_vang", "tbx_seting_quy_doi_vang", 1);</script>
+          <br /><br />       
+          <input id="tbx_seting_quy_doi_xanh" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("seting_quy_doi_xanh", "tbx_seting_quy_doi_xanh", 1);</script>
+          <br /><br />
+          <input id="tbx_ACT_RED" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_RED", "tbx_ACT_RED", 1);</script>
+          <br /><br />
+          <input id="tbx_ACT_YELOW" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_YELOW", "tbx_ACT_YELOW", 1);</script>
+          <br /><br />
+          <input id="tbx_ACT_BLUE" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_BLUE", "tbx_ACT_BLUE", 1);</script>
+          <br /><br /> 
+          <input id="tbx_ME" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("Me", "tbx_ME", 0);</script>
+          <br /><br />  
+          <input id="tbx_ACT_CHAY" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_CHAY", "tbx_ACT_CHAY", 0);</script>
+          <br /><br />  
+          <input id="tbx_ACT_NGHI" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_NGHI", "tbx_ACT_NGHI", 0);</script>
+          <br /><br />  
+          <input id="tbx_ACT_LAP_LAI_TRON" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_LAP_LAI_TRON", "tbx_ACT_LAP_LAI_TRON", 0);</script>
+          <br /><br /> 
+          <input id="tbx_ACT_LAP_LAI_RUA" disabled="disabled" type="text" />   
+          <script>fn_S2_IOField_IO("ACT_LAP_LAI_RUA", "tbx_ACT_LAP_LAI_RUA", 0);</script>
+          <br /><br />   
+           <!-- Chọn chế độ tự động -->
+           <button id="btt_scrManu_Auto" onclick= "socket.emit('cmd_Mode_Auto', true);">TỰ ĐỘNG</button>
+           <script>fn_btt_Color('Q_Lamp_Auto', 'btt_scrManu_Auto', 'rgb(0, 255, 15)', 'gray')</script>
+           <!-- Chọn chế độ bằng tay -->
+           <button id="btt_scrManu_Manu" onclick= "socket.emit('cmd_Mode_Manu', true);">BẰNG TAY</button> 
+           <script>fn_btt_Color('Q_Lamp_Manu', 'btt_scrManu_Manu', 'rgb(220, 217, 11)', 'gray')</script>
+           <!-- chạy hệ thống -->
+           <button id="btt_ON" onclick= "socket.emit('cmd_ON', true);">CHẠY</button>
+           <script>fn_btt_Color('ON', 'btt_ON' )</script>
+            <!-- dừng hệ thống -->
+            <button id="btt_OFF" onclick= "socket.emit('cmd_OFF', true);">DỪNG</button>
+            <script>fn_btt_Color('OFF', 'btt_OFF' )</script>     
+            <!-- cho phep chay  -->
+            <button id="btt_simulation" onclick= "socket.emit('cmd_simulation', true);">simulation</button>
+            <script>fn_btt_Color('simulation', 'btt_simulation' )</script>
+            <!--////////////////////////////////////////////////code nút nhấn chọn công thức màu cho hệ thống //////////////////////////////////////////////////////////////////////////-->
+            <!-- màu 1 -->
+            <button id="btt_m1" onclick= "socket.emit('cmd_m1', true);"></button>
+            <script>fn_btt_Color('m1', 'btt_m1' )</script>
+             <!-- màu 2 -->
+             <button id="btt_m2" onclick= "socket.emit('cmd_m2', true);"></button>
+             <script>fn_btt_Color('m2', 'btt_m2' )</script>
+              <!-- màu 3 -->
+            <button id="btt_m3" onclick= "socket.emit('cmd_m3', true);"></button>
+            <script>fn_btt_Color('m3', 'btt_m3' )</script>
+             <!-- màu 4 -->
+             <button id="btt_m4" onclick= "socket.emit('cmd_m4', true);"></button>
+             <script>fn_btt_Color('m4', 'btt_m4' )</script>
+              <!-- màu 5 -->
+            <button id="btt_m5" onclick= "socket.emit('cmd_m5', true);"></button>
+            <script>fn_btt_Color('m5', 'btt_m5' )</script>
+             <!-- màu 6 -->
+             <button id="btt_m6" onclick= "socket.emit('cmd_m6', true);"></button>
+             <script>fn_btt_Color('m6', 'btt_m6' )</script>
+              <!-- màu 7 -->
+            <button id="btt_m7" onclick= "socket.emit('cmd_m7', true);"></button>
+            <script>fn_btt_Color('m7', 'btt_m1' )</script>
+             <!-- màu 8 -->
+             <button id="btt_m8" onclick= "socket.emit('cmd_m8', true);"></button>
+             <script>fn_btt_Color('m8', 'btt_m8' )</script>
+              <!-- màu 9 -->
+            <button id="btt_m9" onclick= "socket.emit('cmd_m9', true);"></button>
+            <script>fn_btt_Color('m9', 'btt_m9' )</script>
+             <!-- màu 10 -->
+             <button id="btt_m10" onclick= "socket.emit('cmd_m10', true);"></button>
+             <script>fn_btt_Color('m10', 'btt_m10' )</script>
+              <!-- màu 11 -->
+            <button id="btt_m11" onclick= "socket.emit('cmd_m11', true);"></button>
+            <script>fn_btt_Color('m11', 'btt_m11' )</script>
+             <!-- màu 12 -->
+             <button id="btt_m12" onclick= "socket.emit('cmd_m12', true);"></button>
+             <script>fn_btt_Color('m12', 'btt_m12' )</script>
+              <!-- màu 13 -->
+            <button id="btt_m13" onclick= "socket.emit('cmd_m13', true);"></button>
+            <script>fn_btt_Color('m13', 'btt_m13' )</script>
+             <!-- màu 14 -->
+             <button id="btt_m14" onclick= "socket.emit('cmd_m14', true);"></button>
+             <script>fn_btt_Color('m14', 'btt_m14' )</script>
+              <!-- màu 15 -->
+            <button id="btt_m15" onclick= "socket.emit('cmd_m15', true);"></button>
+            <script>fn_btt_Color('m15', 'btt_m15' )</script>
+             <!-- màu 16 -->
+             <button id="btt_m16" onclick= "socket.emit('cmd_m16', true);"></button>
+             <script>fn_btt_Color('m16', 'btt_m16' )</script>
+              <!-- màu 17 -->
+            <button id="btt_m17" onclick= "socket.emit('cmd_m17', true);"></button>
+            <script>fn_btt_Color('m17', 'btt_m17' )</script>
+             <!-- màu 18 -->
+             <button id="btt_m18" onclick= "socket.emit('cmd_m18', true);"></button>
+             <script>fn_btt_Color('m18', 'btt_m18' )</script>
+              <!-- màu 19 -->
+            <button id="btt_m19" onclick= "socket.emit('cmd_m19', true);"></button>
+            <script>fn_btt_Color('m19', 'btt_m19' )</script>
+             <!-- màu 20 -->
+             <button id="btt_m20" onclick= "socket.emit('cmd_m20', true);"></button>
+             <script>fn_btt_Color('m20', 'btt_m20' )</script>
+              <!-- màu 21 -->
+            <button id="btt_m21" onclick= "socket.emit('cmd_m21', true);"></button>
+            <script>fn_btt_Color('m21', 'btt_m21' )</script>
+             <!-- màu 22 -->
+             <button id="btt_m22" onclick= "socket.emit('cmd_m22', true);"></button>
+             <script>fn_btt_Color('m22', 'btt_m22' )</script>
+              <!-- màu 23 -->
+            <button id="btt_m23" onclick= "socket.emit('cmd_23', true);"></button>
+            <script>fn_btt_Color('m23', 'btt_m23' )</script>
+             <!-- màu 24 -->
+             <button id="btt_m24" onclick= "socket.emit('cmd_m24', true);"></button>
+             <script>fn_btt_Color('m24', 'btt_m24' )</script>
+              <!-- màu 25 -->
+            <button id="btt_m25" onclick= "socket.emit('cmd_m25', true);"></button>
+            <script>fn_btt_Color('m25', 'btt_m25' )</script>
+             <!-- màu 26 -->
+             <button id="btt_m26" onclick= "socket.emit('cmd_m26', true);"></button>
+             <script>fn_btt_Color('m26', 'btt_m26' )</script>
+              <!-- màu 27 -->
+            <button id="btt_m27" onclick= "socket.emit('cmd_m27', true);"></button>
+            <script>fn_btt_Color('m27', 'btt_m27' )</script>
+             <!-- màu 28 -->
+             <button id="btt_m28" onclick= "socket.emit('cmd_m28', true);"></button>
+             <script>fn_btt_Color('m28', 'btt_m28' )</script>
+             <!-- màu 29 -->
+             <button id="btt_m29" onclick= "socket.emit('cmd_m29', true);"></button>
+             <script>fn_btt_Color('m29', 'btt_m29' )</script>
+             <!-- màu 30 -->
+             <button id="btt_m30" onclick= "socket.emit('cmd_m30', true);"></button>
+             <script>fn_btt_Color('m30', 'btt_m30' )</script>
+             <!-- màu 31 -->
+             <button id="btt_m31" onclick= "socket.emit('cmd_m31', true);"></button>
+             <script>fn_btt_Color('m31', 'btt_m31' )</script>
+             <!-- màu 32 -->
+             <button id="btt_m32" onclick= "socket.emit('cmd_m32', true);"></button>
+             <script>fn_btt_Color('m32', 'btt_m32' )</script>
+             <!-- màu 33 -->
+             <button id="btt_m33" onclick= "socket.emit('cmd_m33', true);"></button>
+             <script>fn_btt_Color('m33', 'btt_m33' )</script>
+             <!-- màu 34 -->
+             <button id="btt_m34" onclick= "socket.emit('cmd_m34', true);"></button>
+             <script>fn_btt_Color('m34', 'btt_m34' )</script>
+             <!-- màu 35 -->
+             <button id="btt_m35" onclick= "socket.emit('cmd_m35', true);"></button>
+             <script>fn_btt_Color('m35', 'btt_m35' )</script>
+
+        </body>
+</html>
