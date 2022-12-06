@@ -284,7 +284,8 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(3000);
+var port=process.env.port||3000;
+server.listen(port);
 // Home calling
 app.get("/", function(req, res){
     res.render("home")
